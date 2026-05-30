@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="hangMan.css">
+</head>
+
+<body>
+    <section class="container">
+        <div class="backToPortfolio">
+            <button class="back2"><a href="index.html">Back To Portfolio</a></button>
+        </div>
+      
+        <div class="game-container">
+            <h1>Hangman Game</h1>
+            <div class="description">
+                <strong>How to Play:</strong><br>
+                Guess the hidden word one letter at a time. Each wrong guess adds a part to the hangman drawing.
+                You have 6 wrong guesses before the game ends. Guess the full word before the drawing is complete to
+                win!
+            </div>
+
+            <div id="hangman"></div>
+            <div id="word-display"></div>
+
+            <div class="keyboard" id="keyboard"></div>
+
+            <div id="message"></div>
+
+            <button id="restart">Restart Game</button>
+            <button id="hint">Hint</button>
+            <button id="howToPlayBtn">❓ How to Play</button>
+        </div>
+    </section>
+
+    <div id="htpBackdrop" class="htp-backdrop" aria-hidden="true">
+        <div class="htp-modal" role="dialog" aria-modal="true" aria-labelledby="htpTitle">
+          <button class="htp-close" id="htpClose" aria-label="Close">✕</button>
+   
+          <div class="htp-header">
+            <div class="htp-emoji">🎮</div>
+            <div>
+              <p class="htp-eyebrow">Hangman Game</p>
+              <h2 id="htpTitle">How to Play</h2>
+            </div>
+          </div>
+   
+          <ol class="htp-list">
+            <li class="htp-item">
+              <span class="htp-num">01</span>
+              <div><strong>Guess a letter</strong> — Click any letter button on the keyboard, or press a key on your physical keyboard.</div>
+            </li>
+            <li class="htp-item">
+              <span class="htp-num">02</span>
+              <div><strong>Correct guess</strong> — The letter appears in every matching position in the hidden word.</div>
+            </li>
+            <li class="htp-item">
+              <span class="htp-num">03</span>
+              <div><strong>Wrong guess</strong> — A new body part is added to the hangman drawing. You only get <strong>6 wrong guesses!</strong></div>
+            </li>
+            <li class="htp-item">
+              <span class="htp-num">04</span>
+              <div><strong>Use the Hint</strong> — Click the <em>Hint</em> button to reveal the word's category and a clue. One hint per round.</div>
+            </li>
+            <li class="htp-item">
+              <span class="htp-num">05</span>
+              <div><strong>Win</strong> — Reveal every letter before the drawing is complete and you win! 🎉</div>
+            </li>
+            <li class="htp-item">
+              <span class="htp-num">06</span>
+              <div><strong>Lose</strong> — Six wrong guesses fills the gallows. The answer is revealed. Click <em>Restart Game</em> to try again.</div>
+            </li>
+          </ol>
+   
+          <div class="htp-tip">💬 All words are CS &amp; tech themed — great for developer interview prep!</div>
+   
+          <button class="htp-gotit" id="htpGotIt">Got it — Let's Play! 🚀</button>
+        </div>
+      </div>
+
+
+    <script src="javaScript.js"></script>
+</body>
+
+</html>

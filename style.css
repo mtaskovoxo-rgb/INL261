@@ -88,6 +88,11 @@
     transition: color 0.3s;
     position: relative;
   }
+  
+  .button1,a {
+  text-decoration: none;
+  margin-top: 50px;
+}
   .nav-links a::after {
     content: '';
     position: absolute; bottom: -4px; left: 0; right: 0;
@@ -385,12 +390,13 @@
   }
  
   .section-heading {
+    font-size: large;
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 300;
     line-height: 1.1;
     color: var(--white);
-    margin-bottom: 3rem;
+    margin: 50px;
   }
   .section-heading em { font-style: italic; color: var(--neon-purple); }
  
@@ -411,7 +417,11 @@
     align-items: start;
   }
  
-  .about-left {}
+  .about-left {
+    text-align: left;
+    padding: 1rem;
+    color: var(--text);
+  }
  
   .about-text {
     font-size: 0.9rem;
@@ -446,7 +456,11 @@
     margin-top: 0.3rem;
   }
  
-  .about-right {}
+  .about-right {
+    text-align: left;
+    padding: 1rem;
+    color: var(--text);
+  }
  
   .info-row {
     display: flex;
@@ -464,7 +478,15 @@
     flex-shrink: 0;
     color: var(--neon-purple);
   }
-  .info-row .info-content {}
+  .info-row .info-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Adds spacing between child elements */
+    color: var(--off-white); /* Matches the text color with the design */
+    font-size: 0.85rem; /* Ensures consistency with other text sizes */
+    line-height: 1.6; /* Improves readability */
+
+  }
   .info-row .info-label {
     font-size: 0.6rem;
     letter-spacing: 0.2em;
@@ -592,7 +614,14 @@
     color: var(--off-white);
   }
  
-  .philosophy-right {}
+  .philosophy-right {
+    text-align: left; /* Align text to the left */
+    padding: 1rem; /* Add padding for spacing */
+    color: var(--off-white); /* Use a consistent text color */
+    font-size: 0.9rem; /* Set a readable font size */
+    line-height: 1.6; /* Improve readability */
+
+  }
  
   .big-quote {
     font-family: 'Cormorant Garamond', serif;
@@ -947,7 +976,15 @@
   .contact-link:hover::before { opacity: 1; }
   .contact-link:hover { border-color: rgba(180,125,255,0.3); }
   .contact-link .cl-icon { font-size: 1.2rem; }
-  .contact-link .cl-text {}
+  .contact-link .cl-text {
+    display: flex; /* Ensures proper alignment of text */
+    flex-direction: column; /* Stacks label and value vertically */
+    gap: 0.3rem; /* Adds spacing between label and value */
+    color: var(--off-white); /* Matches the design's text color */
+    font-size: 0.85rem; /* Sets a readable font size */
+    line-height: 1.5; /* Improves readability */
+
+  }
   .contact-link .cl-label {
     font-size: 0.6rem;
     letter-spacing: 0.15em;
@@ -967,7 +1004,19 @@
   }
   .contact-link:hover .cl-arrow { transform: translateX(4px); }
  
-  .contact-form-side {}
+  .contact-form-side {
+    display: flex; /* Enables flexible layout */
+    flex-direction: column; /* Stacks child elements vertically */
+    gap: 1.5rem; /* Adds spacing between child elements */
+    padding: 2rem; /* Adds padding for spacing */
+    background: rgba(10,22,40,0.6); /* Sets a background color */
+    border: 1px solid rgba(255,255,255,0.1); /* Adds a subtle border */
+    border-radius: 8px; /* Rounds the corners */
+    color: var(--off-white); /* Matches the text color with the design */
+    font-size: 0.85rem; /* Sets a readable font size */
+    line-height: 1.6; /* Improves readability */
+
+  }
  
   .form-group { margin-bottom: 1.5rem; }
   .form-group label {
@@ -1114,3 +1163,55 @@
     font-size: 1.5rem; color: var(--muted);
     background: none; border: none; cursor: pointer;
   }
+  :root {
+    --bg:        #07080f;
+    --surface:   #0d0f1e;
+    --border:    rgba(120,100,255,0.18);
+    --neon-purple: #9b6dff;
+    --neon-blue:   #4fc3f7;
+    --gold:        #f0c040;
+    --text:        #e8e8f0;
+    --muted:       #5a5a78;
+    --danger:      #ff6b6b;
+    --success:     #50fa7b;
+  }
+ 
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+  .button1{
+font-family: 'Syne', sans-serif;
+font-size: 0.7rem;
+font-weight: 600;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(--navy);
+background: linear-gradient(135deg, var(--purple), var(--neon-purple));
+border: none;
+padding: 1rem 2.5rem;
+cursor: pointer;
+transition: all 0.3s ease;
+width: 50%;
+  }
+ 
+  
+
+
+   .avatar-core {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  display: flex;            /* ensures proper centering */
+  align-items: center;
+  justify-content: center;
+}
+ 
+.avatar-core img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;       /* ensures no square edges sneak in */
+  display: block;
+}
