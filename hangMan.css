@@ -62,24 +62,6 @@ body::before {
     margin-left: 138%;
 }
 
-.back2 {
-    width: 140px;
-    height: 40px;
-    text-align: center;
-    animation: fadeUp 0.8s 1s ease forwards;
-      margin-top: 10px;
-    margin-left: 10px;
-    
-}
-
-.back2,
-a {
-     text-align: center;
-    text-decoration: none;
-    background-color: #b47dff;
-      margin-top: 10px;  
-  margin-left: 10px; 
-}
 
 .game-container {
     background: white;
@@ -334,6 +316,12 @@ button:disabled {
     background: #1e3799;
 }
 .btn{
+    width: 140px;
+    height: 40px;
+    text-align: center;
+    animation: fadeUp 0.8s 1s ease forwards;
+      margin-top: 10px;
+    margin-left: 10px;
      font-family: 'Syne', sans-serif;
     font-size: 0.7rem;
     font-weight: 600;
