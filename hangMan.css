@@ -333,3 +333,17 @@ button:disabled {
 .htp-gotit:hover {
     background: #1e3799;
 }
+.btn{
+     font-family: 'Syne', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--neon-purple);
+    border: none;
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+}
