@@ -67,13 +67,18 @@ body::before {
     height: 40px;
     text-align: center;
     animation: fadeUp 0.8s 1s ease forwards;
+      margin-top: 10px;
+    margin-left: 10px;
+    
 }
 
 .back2,
 a {
     text-decoration: none;
     background-color: #b47dff;
-    animation: fadeUp 0.8s 1s ease forwards;
+      margin-top: 10px;
+    margin-left: 10px;
+    background: #4a69bd;
     
 }
 
