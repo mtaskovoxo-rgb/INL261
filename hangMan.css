@@ -74,12 +74,11 @@ body::before {
 
 .back2,
 a {
+     text-align: center;
     text-decoration: none;
     background-color: #b47dff;
-      margin-top: 10px;
-    margin-left: 10px;
-    background: #4a69bd;
-    
+      margin-top: 10px;  
+  margin-left: 10px; 
 }
 
 .game-container {
