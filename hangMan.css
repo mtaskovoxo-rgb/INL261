@@ -316,27 +316,34 @@ button:disabled {
     background: #1e3799;
 }
 .btn{
-    width: 140px;
-    height: 40px;
-    text-align: center;
-    animation: fadeUp 0.8s 1s ease forwards;
-      margin-top: 10px;
-    margin-left: 10px;
-     font-family: 'Syne', sans-serif;
-    font-size: 0.7rem;
+     position: fixed;
+    top: 18px;
+    right: 24px;
+    z-index: 100;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
     font-weight: 600;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
+    text-decoration: none;
     color: var(--navy);
     background: var(--neon-purple);
     border: none;
-    padding: 0.9rem 2rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
-}
-
-  .btn:hover {
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 18px rgba(180, 125, 255, 0.35);
+    transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+ }
+.btn : hover {
     background: var(--white);
     transform: translateY(-2px);
-  }
+    box-shadow: 0 6px 22px rgba(180, 125, 255, 0.5);
+}
+
+  
+    
