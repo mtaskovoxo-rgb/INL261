@@ -315,6 +315,116 @@ button:disabled {
 .htp-gotit:hover {
     background: #1e3799;
 }
+htp-gotit:hover { background: #1e3799; }
+ 
+/* ── Tablet (≤ 600px) ── */
+@media (max-width: 600px) {
+    body {
+        padding: 56px 10px 20px;
+        align-items: flex-start;
+    }
+ 
+    .game-container {
+        padding: 16px 12px;
+        border-radius: 12px;
+    }
+ 
+    /* Switch to 7 columns so keys are bigger on small screens */
+    .keyboard {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+    }
+ 
+    button {
+        min-height: 40px;
+        border-radius: 6px;
+    }
+ 
+    #word-display {
+        letter-spacing: clamp(3px, 1.5vw, 6px);
+    }
+}
+ 
+/* ── Mobile (≤ 400px) ── */
+@media (max-width: 400px) {
+    .btn-back {
+        font-size: 0.6rem;
+        padding: 0.45rem 0.75rem;
+        top: 10px;
+        right: 10px;
+    }
+ 
+    .keyboard {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 4px;
+    }
+ 
+    button {
+        min-height: 42px;
+        font-size: 13px;
+        padding: 6px 2px;
+    }
+ 
+    #hangman {
+        font-size: 11px;
+    }
+}
+ 
+/* ── Landscape phones ── */
+@media (max-height: 500px) and (orientation: landscape) {
+    body {
+        padding: 52px 12px 12px;
+    }
+ 
+    .game-container {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto auto auto;
+        column-gap: 16px;
+        text-align: left;
+        padding: 12px;
+    }
+ 
+    h1 {
+        grid-column: 1 / -1;
+        text-align: center;
+        margin-bottom: 6px;
+    }
+ 
+    #hangman {
+        grid-column: 1;
+        grid-row: 2 / 5;
+        align-self: start;
+        margin-bottom: 0;
+    }
+ 
+    #word-display {
+        grid-column: 2;
+        grid-row: 2;
+        margin: 4px 0;
+        text-align: center;
+    }
+ 
+    .keyboard {
+        grid-column: 2;
+        grid-row: 3;
+        grid-template-columns: repeat(9, 1fr);
+        gap: 4px;
+        margin-top: 6px;
+    }
+ 
+    .action-buttons {
+        grid-column: 2;
+        grid-row: 4;
+        margin-top: 8px;
+    }
+ 
+    #message {
+        grid-column: 1 / -1;
+        margin-top: 8px;
+        text-align: center;
+    }
+}
 .btn{
      position: fixed;
     top: 18px;
