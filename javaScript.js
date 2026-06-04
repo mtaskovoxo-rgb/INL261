@@ -27,7 +27,7 @@ let wrongGuesses = 0;
 const maxWrong = 6;
 let selectedHint = "";
 let selectedCategory = "";
-let gameOver = fase;
+
 
 function loadStats() {
     return JSON.parse(localStorage.getItem('hangmanStats') || '{"played":0,"wins":0,"losses":0}');
@@ -189,7 +189,7 @@ function startGame() {
     guessedLetters = [];
     wrongGuesses = 0;
     message.textContent = "";
-    gameOver= false;
+  
 
     document.getElementById("hint").disabled = false;
 
