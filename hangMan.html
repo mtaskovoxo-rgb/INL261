@@ -9,7 +9,6 @@
 </head>
 
 <body>
-  
 
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
@@ -38,7 +37,7 @@
         </div>
       </div>
 
-      <div class="category-badge" id="categoryBadge">Loading…</div><br/>
+      <div class="category-badge" id="categoryBadge">Loading…</div><br />
 
       <div class="game-wrap">
         <!-- Gallows -->
@@ -75,6 +74,7 @@
           <div class="btn-row">
             <button class="btn btn-primary" id="newGameBtn">New Word</button>
             <button class="btn btn-outline" id="hintBtn">💡 Show Hint</button>
+            <button class="btn btn-outline" id="howToPlayBtn">❓ How to Play</button>
           </div>
         </div>
       </div>
@@ -92,6 +92,33 @@
       <div class="btn-row">
         <button class="btn btn-primary" onclick="startNewGame()">Play Again</button>
         <button class="btn btn-outline" onclick="closeOverlay()">See Board</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- How to Play modal -->
+  <div class="overlay" id="htpBackdrop">
+    <div class="overlay-card">
+      <button class="btn btn-outline" id="htpClose">✕</button>
+      <div class="htp-header">
+        <div class="htp-emoji">🎮</div>
+        <div>
+          <p class="htp-eyebrow">Hangman Game</p>
+          <h2 id="htpTitle">How to Play</h2>
+        </div>
+      </div>
+      <ol class="htp-list">
+        <li class="htp-item"><strong>01</strong> Click a letter button or press a key to guess a letter.</li>
+        <li class="htp-item"><strong>02</strong> Correct letters appear in the word display.</li>
+        <li class="htp-item"><strong>03</strong> Wrong letters add a body part to the gallows.</li>
+        <li class="htp-item"><strong>04</strong> Use the hint button once per round for a clue.</li>
+        <li class="htp-item"><strong>05</strong> Guess the full word before the hangman is complete to win.</li>
+        <li class="htp-item"><strong>06</strong> If you make 6 wrong guesses, the game ends and the word is revealed.
+        </li>
+      </ol>
+      <div class="htp-tip">Tip: use the hint only when you are stuck.</div>
+      <div class="btn-row">
+        <button class="btn btn-primary" id="htpGotIt">Got it — Let's Play!</button>
       </div>
     </div>
   </div>
