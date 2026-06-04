@@ -748,6 +748,15 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
   }
+
+  .game-wrap{
+    height: 40px;
+    width: 190px;
+    text-align: center;
+    padding: 10px;
+    background: var(--neon-purple);
+    color: var(--navy);
+  }
  
   .personal-card {
     padding: 2.5rem 2rem;
