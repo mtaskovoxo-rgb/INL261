@@ -2,100 +2,103 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="hangMan.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hangman Game</title>
+  <link rel="stylesheet" href="stylesheet.css">
 </head>
 
 <body>
-    <section class="container">
-        
-            <a class ="btn" href="index.html">Back To Portfolio</a>
-        
-      
-        <div class="game-container">
-            <h1>Hangman Game</h1>
-             <div class="scoreboard">
-                <div class="score-item">
-                    <span class="score-label">Played</span>
-                    <span class="score-value" id="stat-played">0</span>
-                </div>
-                <div class="score-item">
-                    <span class="score-label">Wins</span>
-                    <span class="score-value wins" id="stat-wins">0</span>
-                </div>
-                <div class="score-item">
-                    <span class="score-label">Losses</span>
-                    <span class="score-value losses" id="stat-losses">0</span>
-                </div>
-                <div class="score-item">
-                    <span class="score-label">Win Rate</span>
-                    <span class="score-value" id="stat-rate">0%</span>
-                </div>
-            </div>
-            
+  
 
-            <div id="hangman"></div>
-            <div id="word-display"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <main class="content-wrap">
+    <nav>
+      <div class="nav-logo">IS <span style="color:var(--neon-purple)">·</span> Hangman</div>
+      <a href="index.html" class="back-btn">← Back to Portfolio</a>
+    </nav>
 
-            <div class="keyboard" id="keyboard"></div>
+    <section>
+      <div class="page-eyebrow">Belgium Campus IT · Mini Game</div>
+      <h1>Hang<em>man</em></h1>
 
-            <div id="message"></div>
-
-            <button id="restart">Restart Game</button>
-            <button id="hint">Hint</button>
-            <button id="howToPlayBtn">❓ How to Play</button>
+      <div class="score-row">
+        <div class="score-item">
+          <div class="score-num" id="scoreWins">0</div>
+          <div class="score-label">Wins</div>
         </div>
-    </section>
-
-    <div id="htpBackdrop" class="htp-backdrop" aria-hidden="true">
-        <div class="htp-modal" role="dialog" aria-modal="true" aria-labelledby="htpTitle">
-          <button class="htp-close" id="htpClose" aria-label="Close">✕</button>
-   
-          <div class="htp-header">
-            <div class="htp-emoji">🎮</div>
-            <div>
-              <p class="htp-eyebrow">Hangman Game</p>
-              <h2 id="htpTitle">How to Play</h2>
-            </div>
-          </div>
-   
-          <ol class="htp-list">
-            <li class="htp-item">
-              <span class="htp-num">01</span>
-              <div><strong>Guess a letter</strong> — Click any letter button on the keyboard, or press a key on your physical keyboard.</div>
-            </li>
-            <li class="htp-item">
-              <span class="htp-num">02</span>
-              <div><strong>Correct guess</strong> — The letter appears in every matching position in the hidden word.</div>
-            </li>
-            <li class="htp-item">
-              <span class="htp-num">03</span>
-              <div><strong>Wrong guess</strong> — A new body part is added to the hangman drawing. You only get <strong>6 wrong guesses!</strong></div>
-            </li>
-            <li class="htp-item">
-              <span class="htp-num">04</span>
-              <div><strong>Use the Hint</strong> — Click the <em>Hint</em> button to reveal the word's category and a clue. One hint per round.</div>
-            </li>
-            <li class="htp-item">
-              <span class="htp-num">05</span>
-              <div><strong>Win</strong> — Reveal every letter before the drawing is complete and you win! 🎉</div>
-            </li>
-            <li class="htp-item">
-              <span class="htp-num">06</span>
-              <div><strong>Lose</strong> — Six wrong guesses fills the gallows. The answer is revealed. Click <em>Restart Game</em> to try again.</div>
-            </li>
-          </ol>
-   
-          <div class="htp-tip">💬 All words are CS &amp; tech themed — great for developer interview prep!</div>
-   
-          <button class="htp-gotit" id="htpGotIt">Got it — Let's Play! 🚀</button>
+        <div class="score-item">
+          <div class="score-num" id="scoreLosses">0</div>
+          <div class="score-label">Losses</div>
+        </div>
+        <div class="score-item">
+          <div class="score-num" id="scoreStreak">0</div>
+          <div class="score-label">Streak</div>
         </div>
       </div>
 
+      <div class="category-badge" id="categoryBadge">Loading…</div><br/>
 
-    <script src="javaScript.js"></script>
+      <div class="game-wrap">
+        <!-- Gallows -->
+        <div class="gallows-panel">
+          <h3>Progress</h3>
+          <svg id="gallows" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+            <line x1="20" y1="210" x2="180" y2="210" stroke="#2a2a4a" stroke-width="3" stroke-linecap="round" />
+            <line x1="60" y1="210" x2="60" y2="20" stroke="#2a2a4a" stroke-width="3" stroke-linecap="round" />
+            <line x1="60" y1="20" x2="130" y2="20" stroke="#2a2a4a" stroke-width="3" stroke-linecap="round" />
+            <line x1="130" y1="20" x2="130" y2="45" stroke="#2a2a4a" stroke-width="3" stroke-linecap="round" />
+            <circle id="h-head" cx="130" cy="60" r="15" fill="none" stroke="var(--neon-purple)" stroke-width="2.5"
+              opacity="0" />
+            <line id="h-body" x1="130" y1="75" x2="130" y2="130" stroke="var(--neon-purple)" stroke-width="2.5"
+              stroke-linecap="round" opacity="0" />
+            <line id="h-larm" x1="130" y1="90" x2="108" y2="115" stroke="var(--neon-purple)" stroke-width="2.5"
+              stroke-linecap="round" opacity="0" />
+            <line id="h-rarm" x1="130" y1="90" x2="152" y2="115" stroke="var(--neon-purple)" stroke-width="2.5"
+              stroke-linecap="round" opacity="0" />
+            <line id="h-lleg" x1="130" y1="130" x2="108" y2="160" stroke="var(--neon-purple)" stroke-width="2.5"
+              stroke-linecap="round" opacity="0" />
+            <line id="h-rleg" x1="130" y1="130" x2="152" y2="160" stroke="var(--neon-purple)" stroke-width="2.5"
+              stroke-linecap="round" opacity="0" />
+          </svg>
+          <div class="lives-display" id="livesDisplay"></div>
+        </div>
+
+        <!-- Word + Keyboard -->
+        <div class="word-panel">
+          <div class="word-display" id="wordDisplay"></div>
+          <div class="hint-box" id="hintBox">Hint will appear here…</div>
+          <div class="guessed-wrap" id="guessedLetters"></div>
+          <div class="keyboard" id="keyboard"></div>
+          <div class="status-msg" id="statusMsg"></div>
+          <div class="btn-row">
+            <button class="btn btn-primary" id="newGameBtn">New Word</button>
+            <button class="btn btn-outline" id="hintBtn">💡 Show Hint</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Win/Lose overlay -->
+  <div class="overlay" id="overlay">
+    <div class="overlay-card">
+      <div class="overlay-icon" id="overlayIcon"></div>
+      <div class="overlay-title" id="overlayTitle"></div>
+      <p id="overlayMsg" style="color:var(--muted);font-size:0.9rem;"></p>
+      <div class="overlay-word" id="overlayWord"></div>
+      <div class="divider"></div>
+      <div class="btn-row">
+        <button class="btn btn-primary" onclick="startNewGame()">Play Again</button>
+        <button class="btn btn-outline" onclick="closeOverlay()">See Board</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>Hangman · Belgium Campus IT · Ikraam Sadek Portfolio · 2025</footer>
+  <div class="section-divider"></div>
+  <script src="app1.js"></script>
 </body>
 
 </html>
