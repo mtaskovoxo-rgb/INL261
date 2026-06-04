@@ -1,4 +1,4 @@
-const WORDS = [
+    const WORDS = [
     { word: "JAVASCRIPT", hint: "The main scripting language used in web browsers", category: "Programming Language" },
     { word: "DATABASE", hint: "Stores, organizes, and retrieves structured information", category: "Data Management" },
     { word: "ALGORITHM", hint: "A logical set of steps to solve a problem", category: "Computer Science Concepts" },
@@ -20,6 +20,15 @@ const WORDS = [
     { word: "TESTING", hint: "Checking software for bugs, quality, and reliability", category: "Software Quality Assurance" },
     { word: "ITERATION", hint: "Repeating steps to refine or complete a process", category: "Computer Science Concepts" }
 ];
+
+let selectedWord = "";
+let guessedLetters = [];
+let wrongGuesses = 0;
+const maxWrong = 6;
+let selectedHint = "";
+let selectedCategory = "";
+let gameOver = fase;
+
 function loadStats() {
     return JSON.parse(localStorage.getItem('hangmanStats') || '{"played":0,"wins":0,"losses":0}');
 }
@@ -53,12 +62,6 @@ function recordLoss() {
     updateStatsDisplay();
 }
 
-let selectedWord = "";
-let guessedLetters = [];
-let wrongGuesses = 0;
-const maxWrong = 6;
-let selectedHint = "";
-let selectedCategory = "";
 
 let hangmanStages = [];
 const allStages = [
@@ -186,11 +189,13 @@ function startGame() {
     guessedLetters = [];
     wrongGuesses = 0;
     message.textContent = "";
+    gameOver= false;
 
     document.getElementById("hint").disabled = false;
 
     createKeyboard();
     updateDisplay();
+    updateStatsDisplay();
 }
 
 function updateDisplay() {
@@ -205,11 +210,13 @@ function updateDisplay() {
     if (!displayWord.includes("_")) {
         message.textContent = "🎉 You Win!";
         disableKeyboard();
+        if (!gameOver) { gameOver = true; recordWin(); }
     }
 
     if (wrongGuesses >= maxWrong) {
         message.textContent = `💀 You Lost! The word was: ${selectedWord}`;
         disableKeyboard();
+        if (!gameOver) { gameOver = true; recordWin(); }
     }
 }
 
@@ -257,6 +264,13 @@ document.addEventListener("keydown", (e) => {
 });
 
 restartBtn.addEventListener("click", startGame);
+
+document.getElementById("resetStats").addEventListener("click", () => {
+    if (confirm("Reset all stats? This cannot be undone.")) {
+        localStorage.removeItem('hangmanStats');
+        updateStatsDisplay();
+    }
+});
 const hintBtn = document.getElementById("hint");
 
 hintBtn.addEventListener("click", () => {
