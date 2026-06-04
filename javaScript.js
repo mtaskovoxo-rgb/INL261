@@ -20,40 +20,7 @@
     { word: "TESTING", hint: "Checking software for bugs, quality, and reliability", category: "Software Quality Assurance" },
     { word: "ITERATION", hint: "Repeating steps to refine or complete a process", category: "Computer Science Concepts" }
 ];
-function loadStats() {
-    return JSON.parse(localStorage.getItem('hangmanStats') || '{"played":0,"wins":0,"losses":0}');
-}
-
-function saveStats(stats) {
-    localStorage.setItem('hangmanStats', JSON.stringify(stats));
-}
-
-function updateStatsDisplay() {
-    const stats = loadStats();
-    document.getElementById('stat-played').textContent = stats.played;
-    document.getElementById('stat-wins').textContent = stats.wins;
-    document.getElementById('stat-losses').textContent = stats.losses;
-    const rate = stats.played > 0 ? Math.round((stats.wins / stats.played) * 100) : 0;
-    document.getElementById('stat-rate').textContent = rate + '%';
-}
-
-function recordWin() {
-    const stats = loadStats();
-    stats.played++;
-    stats.wins++;
-    saveStats(stats);
-    updateStatsDisplay();
-}
-
-function recordLoss() {
-    const stats = loadStats();
-    stats.played++;
-    stats.losses++;
-    saveStats(stats);
-    updateStatsDisplay();
-}
-
-
+   
 let selectedWord = "";
 let guessedLetters = [];
 let wrongGuesses = 0;
@@ -193,7 +160,7 @@ function startGame() {
 
     createKeyboard();
     updateDisplay();
-    updateStatsDisplay();
+   
 }
 
 function updateDisplay() {
@@ -208,13 +175,13 @@ function updateDisplay() {
     if (!displayWord.includes("_")) {
         message.textContent = "🎉 You Win!";
         disableKeyboard();
-        if (!gameOver) { gameOver = true; recordWin(); }
+      
     }
 
     if (wrongGuesses >= maxWrong) {
         message.textContent = `💀 You Lost! The word was: ${selectedWord}`;
         disableKeyboard();
-        if (!gameOver) { gameOver = true; recordWin(); }
+       
     }
 }
 
@@ -266,7 +233,7 @@ restartBtn.addEventListener("click", startGame);
 document.getElementById("resetStats").addEventListener("click", () => {
     if (confirm("Reset all stats? This cannot be undone.")) {
         localStorage.removeItem('hangmanStats');
-        updateStatsDisplay();
+       
     }
 });
 const hintBtn = document.getElementById("hint");
