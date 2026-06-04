@@ -20,15 +20,6 @@
     { word: "TESTING", hint: "Checking software for bugs, quality, and reliability", category: "Software Quality Assurance" },
     { word: "ITERATION", hint: "Repeating steps to refine or complete a process", category: "Computer Science Concepts" }
 ];
-
-let selectedWord = "";
-let guessedLetters = [];
-let wrongGuesses = 0;
-const maxWrong = 6;
-let selectedHint = "";
-let selectedCategory = "";
-
-
 function loadStats() {
     return JSON.parse(localStorage.getItem('hangmanStats') || '{"played":0,"wins":0,"losses":0}');
 }
@@ -62,6 +53,13 @@ function recordLoss() {
     updateStatsDisplay();
 }
 
+
+let selectedWord = "";
+let guessedLetters = [];
+let wrongGuesses = 0;
+const maxWrong = 6;
+let selectedHint = "";
+let selectedCategory = "";
 
 let hangmanStages = [];
 const allStages = [
